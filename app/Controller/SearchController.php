@@ -87,7 +87,7 @@ class SearchController extends AppController {
     private function extractTitle($title){
         $year = '';
         $title = preg_replace('/.'.explode('.', $title)[count(explode('.', $title))-1].'/', '', $title); //remove the file type
-        $qualities = ['1080p', '720p', '480p', '360p', 'BlueRay', 'HDRIP', 'DVDRIP', 'EXTENDED', '/S([0-9]{2})E([0-9]{2})/'];
+        $qualities = ['1080p', '720p', '480p', '360p', 'BlueRay', 'HDRIP', 'DVDRIP', 'HDTV', 'EXTENDED', '/S([0-9]{2})E([0-9]{2})/'];
         foreach ($qualities as $qual){
             if (substr($qual, 0, 1) == '/'){
                 preg_match($qual, $title, $matches, PREG_OFFSET_CAPTURE);
