@@ -82,6 +82,8 @@ class MovieController extends AppController {
             $exp = explode('.', $item['name']);
             $ext = $exp[count($exp)-1];
             return $ext == 'part';
+        } elseif($filter == 'folders'){
+            return is_dir($item['dir'].$item['name']);
         }
         return true;
     }

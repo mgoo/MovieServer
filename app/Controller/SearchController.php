@@ -39,13 +39,20 @@ class SearchController extends AppController {
         
         $isFile = $this->request->data('isFile');
         if ($isFile == true){
-            $this->set('location', $this->request->data('dir'));
+            $dir = $this->request->data('dir');
+            $this->set('location', $dir);
             $this->set('ext', explode('.', $title)[count(explode('.', $title))-1]); 
             $this->set('is_file', true);      
             $title = $this->extractTitle($title);
             $year = $title['year'];
             $title = $title['title'];
-            $this->set('title', $title);            
+            $this->set('title', $title);   
+            
+            $base_location = Configure::read('DeviceNetworkLocations')[explode('/', $dir)[1]];
+            $dir_arr = explode('/', $dir);
+            unset($dir_arr[0]);unset($dir_arr[1]);
+            $base_location .= implode('\\', $dir_arr);
+            $this->set('network_location', $base_location); //This only works with windows as docuemtn separator has to be the document separator of the client not he server
         }
         
         $json_string = file_get_contents('http://www.omdbapi.com/?t='.urlencode($title).'&y='.urlencode($year).'&plot=short&r=json');
@@ -60,11 +67,19 @@ class SearchController extends AppController {
         
         $title = $this->request->data('title');
         
-        $this->set('location', $this->request->data('dir'));
+        $dir = $this->request->data('dir');
+        
+        $this->set('location', $dir);
         $this->set('title', $this->extractTitle($title)['title']);
         $this->set('data', ['Error' => 'has not loaded yet']);
         $this->set('ext', explode('.', $title)[count(explode('.', $title))-1]);
         $this->set('is_file', true);
+        
+        $base_location = Configure::read('DeviceNetworkLocations')[explode('/', $dir)[1]];
+        $dir_arr = explode('/', $dir);
+        unset($dir_arr[0]);unset($dir_arr[1]);
+        $base_location .= implode('\\', $dir_arr);
+        $this->set('network_location', $base_location); //This only works with windows     
         
         $this->render('get_info');
     }

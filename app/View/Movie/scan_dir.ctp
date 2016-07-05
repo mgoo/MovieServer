@@ -1,6 +1,7 @@
 <input id="search_movie" class="search" type="text" placeholder="Search">
 <select id="filter" class="search">
     <option value="videos">Movie Files</option>
+    <option value="folders">Folders</option>
     <option value="all">Everything</option>
     <option value="downloading">Downloading</option>
 </select>
@@ -21,7 +22,7 @@
             })
                     .done(function(data){
                         $('#results').html(data);
-                        $('#all').fadeOut(400, function(){$('#results').fadeIn();});
+                        $('#all').fadeOut('400', function(){$('#results').fadeIn();});
                     })
                     .fail(function(msg, status, reason){
                         alert('Something went wrong');

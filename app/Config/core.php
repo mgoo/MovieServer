@@ -26,7 +26,7 @@
  * They had the location of the transmission client and the device loactions
  */
     Configure::write('ServerName', 'mgoopc');
-    Configure::write('DeviceNetworkLocations', ['Torrents' => 'mgoopc/Torrents', 'Videos' => 'mgoopc/Videos', 'Andrews_HD' => 'mgoopc/Vids']);
+    Configure::write('DeviceNetworkLocations', ['Torrents' => '\\\\mgoopc\\Torrents\\', 'Videos' => '\\\\mgoopc\\Videos\\', 'andrews_HD' => 'mgoopc\\andrews_hd\\']); //these only work for windows
 
 
 /**
