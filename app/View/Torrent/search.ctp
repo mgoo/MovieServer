@@ -1,9 +1,11 @@
+<div id="search_bar_torrent">
 <input id="title" name="title" class="search" type="text" placeholder="Title" value="<?php if (isset($title)){echo $title;} ?>">
 <input id="year" name="year" class="search" type="text" placeholder="Year" value="<?php if (isset($year)){echo $year;} ?>">
+</div>
 <div id="results" class="searchResults"></div>
 
 <script>
-    $(document).keypress(function(e) {
+    $('#search_bar_torrent').keypress(function(e) {
         if(e.which === 13) {         
             search($('#title').val(), $('#year').val());
         }        

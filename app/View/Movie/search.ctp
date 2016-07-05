@@ -1,3 +1,4 @@
+<div id="search_bar_imdb">
 <input id="title" name="title" class="search" type="text" placeholder="Title">
 <input id="year" name="year" class="search" type="text" placeholder="Year">
 <select id="type" class="search">
@@ -5,10 +6,11 @@
     <option value="series">Series</option>
     <option value="episode">Episode</option>
 </select>
+</div>
 <div id="results" class="searchResults"></div>
 
 <script>
-    $(document).keypress(function(e) {
+    $('#search_bar_imdb').keypress(function(e) {
         if(e.which === 13) {         
             $.ajax({
                 url: '<?php echo $this->Html->url(['controller' => 'Search', 'action' => 'searchOmdb'], true);?>',
