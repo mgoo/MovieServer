@@ -97,7 +97,7 @@ class MovieController extends AppController {
                     $matches = array_merge($this->recursiveSearch($dir.$item.DIRECTORY_SEPARATOR, $pattern), $matches);
                 } catch (Exception $e){}
             }
-            if (stripos($item, $pattern) !== false){
+            if (stripos($item, $pattern) !== false || stripos($item, str_replace(' ', '.', $pattern)) !== false){
                 array_push($results, $item);
             }
         }
