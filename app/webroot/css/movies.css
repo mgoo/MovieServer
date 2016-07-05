@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/07/2016, 8:07:22 PM
+    Author     : root
+*/
+
+.moive_list{
+    list-style: none;
+}
+
+.moive_list li{
+    padding: 1%;
+    cursor: pointer;
+}
+
+.editing{
+    color: #000;
+}
+
+@keyframes rotateTextDown
+{
+    0%   {transform: rotate(0deg); }
+    100% {transform: rotate(90deg); }
+}
+
+@keyframes rotateTextUp
+{
+    0%   {transform: rotate(90deg); }
+    100% {transform: rotate(0deg); }
+}
+
+.moive_list li span.down{
+    animation-name: rotateTextDown;
+    animation: rotateTextDown 0.5s;    
+    display: inline-block; 
+    animation-fill-mode: forwards;
+}
+
+.moive_list li span.up{
+    animation-name: rotateTextUp;
+    animation: rotateTextUp 0.5s;    
+    display: inline-block; 
+    animation-fill-mode: forwards;
+}
