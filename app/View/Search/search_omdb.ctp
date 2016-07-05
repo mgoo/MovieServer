@@ -7,9 +7,15 @@ Total Results: <?php echo $data['totalResults']; ?> <br>
     <?php if ($page != 100): ?>
         <span onclick="loadPage(<?php echo $page + 1; ?>)">Next</span>
     <?php endif; ?>
-    <ul>
+    <ul class="omdb_results">
     <?php foreach ($data['Search'] as $search_result): ?>
-        <li><span onclick="loadMovie('<?php echo $search_result['Title']; ?>', '<?php echo $search_result['Year']; ?>')"><?php echo $search_result['Title']; ?></span><span onclick="torrentSearch('<?php echo $search_result['Title'] ?>', '<?php echo $search_result['Year'] ?>')" class="imgButton"><?php echo 'T' ?></span></li>
+        <li>
+            <span onclick="loadMovie('<?php echo $search_result['Title']; ?>', '<?php echo $search_result['Year']; ?>')"><?php echo $search_result['Title']; ?></span>
+            <ul>
+                <li><span onclick="torrentSearch('<?php echo $search_result['Title'] ?>', '<?php echo $search_result['Year'] ?>')" class="imgButton"><?php echo $this->Html->image('torrent_project.png'); ?></span>
+                    <span ><a href="http://www.imdb.com/title/<?php echo $search_result['imdbID']; ?>/" target="_blank" class="imgButton"><?php echo $this->Html->image('imdb.png'); ?></a></span></li>
+            </ul>
+        </li>
     <?php endforeach; ?>
     </ul>  
 <?php else: ?>

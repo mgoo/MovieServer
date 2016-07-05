@@ -46,3 +46,13 @@ and open the template in the editor.
     display: inline-block; 
     animation-fill-mode: forwards;
 }
+
+.omdb_results{
+    list-style: none;
+}
+.omdb_results ul{
+    /*list-style: none;*/
+}
+.omdb_results * .imgButton img{
+    height: 20px;
+}
