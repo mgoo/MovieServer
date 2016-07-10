@@ -21,7 +21,11 @@ class MainController extends AppController {
     function beforeFilter() {
         parent::beforeFilter();
     }
-
+    
+    /**
+     * Loads the main view
+     * @param type $id
+     */
     public function index($id) {
         
     }

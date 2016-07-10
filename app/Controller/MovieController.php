@@ -19,6 +19,10 @@ class MovieController extends AppController {
     private $moive_file_extensions = ['webm', 'mkv', 'flv', 'vob', 'ogg', 'ogv', 'gif', 'gifv', 'mng', 'avi', 'mov', 'qt', 'wmv', 'yuv', 'rm', 'rmvb', 'asf', 'amv', 'mp4', 'm4p', 'm4v',
         'mpg', 'mp2', 'mpeg', 'mpe', 'mpv', 'm2v', 'm4v', 'svi', '3gp', '3g2', 'mxf', 'roq', 'nsv', 'flv', 'f4v', 'f4p', 'f4a', 'f4b'];
     
+    
+    /**
+     * This will go through a peticualr directory and sort it out in to file folders and links
+     */
     public function scanDir(){           
         $this->autoRender = false;
         
@@ -46,6 +50,9 @@ class MovieController extends AppController {
         }
     }
     
+    /**
+     * Searches a directory for a match of depending on the filters and returns the html for displaying them 
+     */
     public function searchDir(){
         $this->autoRender = false;
         
@@ -71,6 +78,13 @@ class MovieController extends AppController {
         $this->render('/Elements/DirElement');
     }
     
+    /**
+     * Apples the filters for the results of a search
+     * passible filters are: videos all downloading folders
+     * @param type $item
+     * @param type $filter
+     * @return boolean
+     */
     private function filterSearch($item, $filter){
         if($filter == 'videos'){
             $exp = explode('.', $item['name']);
@@ -88,6 +102,12 @@ class MovieController extends AppController {
         return true;
     }
     
+    /**
+     * This is the recursive function that searches the subfolders of a directory
+     * @param type $dir
+     * @param type $pattern
+     * @return type
+     */
     private function recursiveSearch($dir, $pattern){  
         //echo 'Directory: '.$dir.' Pattern: '.$pattern.'<br>';        
         $all = scandir($dir);
@@ -113,7 +133,9 @@ class MovieController extends AppController {
         return array_merge($formatted_results, $matches);
     }
 
-
+    /**
+     * will change the name of a file or folder
+     */
     public function changeName(){
         $this->autoRender = false;
         

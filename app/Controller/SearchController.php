@@ -22,6 +22,9 @@ class SearchController extends AppController {
         
     }
     
+    /**
+     * Searches the Torrent Project API for torrents
+     */
     public function search(){
         $title = $this->request->data('title');
         $year = $this->request->data('year');
@@ -33,6 +36,9 @@ class SearchController extends AppController {
         $this->set('data', $data_array);  
     }    
         
+    /**
+     * Gets the info of a movie from Omdb and returns the HTML for the side bar
+     */
     public function getInfo(){
         $title = $this->request->data('title');        
         $year = $this->request->data('year');
@@ -62,6 +68,9 @@ class SearchController extends AppController {
         $this->set('data', $data_array);        
     }
     
+    /**
+     * returns the code for the side bar but does not search Omdb so it is faster
+     */
     public function quickOpen(){
         $this->autoRender = false;
         
@@ -84,10 +93,16 @@ class SearchController extends AppController {
         $this->render('get_info');
     }
     
+    /**
+     * tries to extract the title from the title of a file
+     * does this by choping of the name of the file from the quality of which season and expisode of the TV series it is
+     * @param type $title
+     * @return type
+     */
     private function extractTitle($title){
         $year = '';
         $title = preg_replace('/.'.explode('.', $title)[count(explode('.', $title))-1].'/', '', $title); //remove the file type
-        $qualities = ['1080p', '720p', '480p', '360p', 'BlueRay', 'HDRIP', 'DVDRIP', 'HDTV', 'EXTENDED', '/S([0-9]{2})E([0-9]{2})/'];
+        $qualities = ['1080p', '720p', '480p', '360p', 'BlueRay', 'HDRIP', 'DVDRIP', 'HDTV', 'EXTENDED', 'HD-TC', '/S([0-9]{2})E([0-9]{2})/'];
         foreach ($qualities as $qual){
             if (substr($qual, 0, 1) == '/'){
                 preg_match($qual, $title, $matches, PREG_OFFSET_CAPTURE);
@@ -115,6 +130,10 @@ class SearchController extends AppController {
         return ['title' => $title, 'year' => $year];
     }
     
+    /**
+     * Searches Omdb for a movie and returns a list of results
+     * this has pagination
+     */
     public function searchOmdb(){
         $title = $this->request->data('title');
         $year = $this->request->data('year');
@@ -137,6 +156,10 @@ class SearchController extends AppController {
         $this->set('type', $type);
     }
     
+    /**
+     * this loads a movie to the sidebar from a omdb search
+     * un unused as cbf json encoding everything when searching Omdb is reasonable fast
+     */
     public function loadMoive(){
         $this->autoRender = false;
         
