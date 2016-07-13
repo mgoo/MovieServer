@@ -12,7 +12,7 @@
     <?php endif; ?>
 <?php if(!isset($data['Error'])): ?>
     <h2>ImdbRating: <?php echo $data['imdbRating']; ?></h2>    
-    <h3>Actors: <?php echo $data['Actors']; ?></h3>
+    <h3>Actors: <?php echo utf8_decode($data['Actors']); ?></h3>
     <span>Type: <?php echo $data['Type']; ?> <br></span>
     <span>Genre: <?php echo $data['Genre']; ?> <br></span>
     <p><?php echo $data['Plot'];?></p>
