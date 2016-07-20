@@ -7,7 +7,7 @@
         <?php if (isset($quality)): ?><span>Quality: <?php echo $quality; ?></span><br><?php endif; ?>
         <?php if (isset($episode)): ?><span><?php echo $episode; ?></span><br><?php endif; ?>  
         <?php if($ext == 'mp4' || $ext == 'm4v'): ?><a class="imgButton" href="<?php echo $location ?>" target="_blank"><?php echo $this->Html->image('play.png'); ?></a><?php endif; ?>
-        <a class="imgButton" href="<?php echo $location ?>" target="_blank"><?php echo $this->Html->image('download.png'); ?></a>
+        <a class="imgButton" href="<?php echo $this->Html->url(['controller' => 'Movie', 'action' => 'download', '?' => ['name' => $title.'.'.$ext, 'location' => $location]], true) ?>" target="_blank"><?php echo $this->Html->image('download.png'); ?></a>
         <span class="imgButton" id="copy"><?php echo $this->Html->image('copy.png'); ?><input style="display: none;" id="location" type="text" value="<?php echo $network_location; ?>"></span>    
     <?php endif; ?>
 <?php if(!isset($data['Error'])): ?>
@@ -28,6 +28,5 @@
         document.execCommand("copy");
         $('#location').hide();
     });
-    
     </script>
 

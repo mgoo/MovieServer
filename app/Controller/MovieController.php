@@ -149,4 +149,12 @@ class MovieController extends AppController {
     public function search(){
         
     }
+    
+    public function download(){      
+        $location = $this->params['url']['location'];
+        $name = explode(DIRECTORY_SEPARATOR , $location)[count(explode(DIRECTORY_SEPARATOR , $location))-1];
+        //$name = $this->params['url']['name'];
+        $this->response->file($location, ['download' => true, 'name' => $name]);
+        return $this->response;                
+    }
 }
