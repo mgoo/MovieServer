@@ -1,0 +1,6 @@
+## YAML Template.
+movieserver:
+  build: .
+  ports:
+    - "81:80"
+    - "3307:3306"

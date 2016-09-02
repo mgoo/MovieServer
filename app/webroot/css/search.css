@@ -10,6 +10,7 @@ and open the template in the editor.
 
 .search{
     color: #000;
+    display: block;
 }
 
 .results_list, .results_list ul{
@@ -25,15 +26,13 @@ span.add img, a.magnet img{
 }
 
 .loading{
-    height: 75px;
+    height: 150px;
     margin: auto;
     display: block;
 }
 
 .page_current{
-    background-color: #FFF;
-    color: #000;
-    
+    border: black thin solid;
     width: 30px;
     
     border-radius: 100%;

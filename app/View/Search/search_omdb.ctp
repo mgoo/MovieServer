@@ -13,7 +13,9 @@ Total Results: <?php echo $data['totalResults']; ?> <br>
     </ul>  
 <?php else: ?>
         <script>
-            loadPage(<?php echo $page -1; ?>);
+            if($page - 1 > 0){
+                loadPage(<?php echo $page - 1; ?>);
+            }
         </script>
 <?php endif; ?>
 
@@ -49,7 +51,7 @@ Total Results: <?php echo $data['totalResults']; ?> <br>
                 $('#results').html('<?php echo $this->Html->image('loading.gif', ['alt' => 'Loading', 'class' => 'loading']); ?>');
             }
         })
-                .done(function(data){
+                .done(function(data){                    
                     $('#results').html(data);
                 })
                 .fail(function(msg, status, reason){

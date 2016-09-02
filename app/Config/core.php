@@ -25,7 +25,7 @@
  * These are the Global variables that will need to be changed for each different server
  * They had the location of the transmission client and the device loactions
  */
-    Configure::write('ServerName', 'mgoopc');
+    Configure::write('ServerName', '192.168.20.10');
     Configure::write('DeviceNetworkLocations', ['Torrents' => '\\\\192.168.20.13\\Torrents\\', 'Videos' => '\\\\192.168.20.13\\Videos\\', 'andrews_HD' => '\\\\192.168.20.13\\andrews_hd\\']); //these only work for windows
 
 

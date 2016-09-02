@@ -1,11 +1,28 @@
 <div id="search_bar_imdb">
-<input id="title" name="title" class="search" type="text" placeholder="Title">
-<input id="year" name="year" class="search" type="text" placeholder="Year">
-<select id="type" class="search">
-    <option value="movie">Movie</option>
-    <option value="series">Series</option>
-    <option value="episode">Episode</option>
-</select>
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">search</i>
+                <input id="title" name="title" class="search" type="text" placeholder="Title">
+                <label for="title">Title</label>
+            </div>
+
+            <div class="input-field col s4">
+                <input id="year" name="year" class="search" type="text" placeholder="Year">
+                <label for="year">Year</label>
+            </div>
+            
+            <div class="input-field col s4">
+                <select id="type" class="icon">
+                    <option value="movie">Movie</option>
+                    <option value="series">Series</option>
+                    <option value="episode">Episode</option>
+                </select>
+                <label>Year</label>
+            </div>
+        </div>
+    </form>
+
 </div>
 <div id="results" class="searchResults"></div>
 

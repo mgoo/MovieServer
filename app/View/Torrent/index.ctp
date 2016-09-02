@@ -1,4 +1,3 @@
-<?php// print_r($data); ?>
 <ul class="moive_list">
     
 <?php foreach ($data as $TorrentData):?>

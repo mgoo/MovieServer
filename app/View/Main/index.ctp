@@ -1,20 +1,14 @@
-<div class="side_bar">
-    <ul>
-        <li>Movies<br></li>
-        <ul>
-            <li id="movies_button">View</li>            
+<nav role="navigation" class="light-blue">
+    <div class="nav-wrapper container">
+        <span class="brand-logo">Movie Server</span>
+        <ul class="right">
+            <li><a href="#" id="movies_button">View</a></li>
+            <li><a href="#" id="serch_movies_button">Search</a></li>
+            <li><a href="#" id="search_torrent_button">Torrents</a></li>
+            <li><a href="#" id="torrents_button">Downloading</a></li>            
         </ul>
-        <li>Imdb</li>
-        <ul>
-            <li id="serch_movies_button">Search</li>
-        </ul>
-        <li>Torrents<br></li>
-        <ul>
-            <li id="search_torrent_button">Search<br></li>
-            <li id="torrents_button">Current</li>
-        </ul>
-    </ul>    
-</div>
+    </div>
+</nav>
 <div class="middle_div" id="middle_div">
 </div>
 <div class="right_bar" id="right_bar">
@@ -32,6 +26,7 @@
         })
                 .done(function(data){
                     $('#middle_div').html(data);
+                    $('select').material_select();
                 })
                 .fail(function(msg, status, reason){
                     alert('Something went wrong');
@@ -45,6 +40,7 @@
         })
                 .done(function(data){
                     $('#middle_div').html(data);
+                    $('select').material_select();
                 })
                 .fail(function(msg, status, reason){
                     alert('Something went wrong');
@@ -57,6 +53,7 @@
         })
                 .done(function(data){
                     $('#middle_div').html('<iframe src="http://<?php echo Configure::read('ServerName') ?>:9091" style="width: 100%;height: 100%"></iframe>');
+                
                 })
                 .fail(function(msg, status, reason){
                     alert('Something went wrong');
@@ -69,6 +66,7 @@
         })
                 .done(function(data){
                     $('#middle_div').html(data);
+                    $('select').material_select();
                 })
                 .fail(function(msg, status, reason){
                     alert('Something went wrong');

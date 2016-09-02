@@ -1,4 +1,6 @@
+<?php if (!isset($data['error'])):?>
 <ul class="results_list">
+    <?php print_r($data); ?>
     <?php foreach ($data as $torrent): ?>
     <?php if (!isset($torrent['title'])){echo $torrent.' Results<br>';continue;} ?>
     <li><span class="title"><?php echo $torrent['title']; ?></span></li>
@@ -28,3 +30,9 @@
     </ul>
     <?php endforeach; ?>    
 </ul>
+<?php else: ?>
+<h3><?php echo $data['error']; ?></h3>
+<br>
+<p><?php echo $data['reason']; ?></p>
+
+<?php endif;?>

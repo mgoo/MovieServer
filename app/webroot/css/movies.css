@@ -10,6 +10,7 @@ and open the template in the editor.
 
 .moive_list{
     list-style: none;
+    margin-left: 2%;
 }
 
 .moive_list li{

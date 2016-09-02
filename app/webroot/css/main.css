@@ -7,20 +7,20 @@ and open the template in the editor.
     Created on : 30/06/2016, 11:11:21 PM
     Author     : root
 */
+*{
+    font-family: 'Roboto Slab', serif;
+}
 body, #container{
     width: 100vw;
     height: 98vh;
     padding: 0;
-    margin: 0;
-    color: #FFF;
-    background-color: #000;
+    margin: 0;    
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.side_bar, .middle_div, .right_bar{
-    height: 100vh;
-    background-color: #000; 
+.middle_div, .right_bar{
+    height: calc(100vh - 64px);   
     padding: 5px;
     display: inline-block;
     overflow-y: auto;
@@ -28,28 +28,12 @@ body, #container{
     vertical-align: top;
 }
 
-.side_bar{
-    width: 15vw;
-    border-right: #000 groove thin;
-}
-.side_bar ul{
-    list-style: none;
-}
-.side_bar li{    
-    margin: 5%;
-    margin-top: 5%;
-    padding-top: 5%;
-}
-.side_bar ul ul{
-    cursor: pointer;
-}
-
 .middle_div{
-    width: 60vw;
+    width: 70vw;
 }
 
 .right_bar{
-    width: 21vw;
+    width: 29vw;
 }
 
 .imgButton img{

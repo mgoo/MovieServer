@@ -1,6 +1,18 @@
 <div id="search_bar_torrent">
-<input id="title" name="title" class="search" type="text" placeholder="Title" value="<?php if (isset($title)){echo $title;} ?>">
-<input id="year" name="year" class="search" type="text" placeholder="Year" value="<?php if (isset($year)){echo $year;} ?>">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">search</i>
+                <input id="title" name="title" class="search" type="text" placeholder="Title" value="<?php if (isset($title)){echo $title;} ?>">
+                <label for="title">Title</label>
+            </div>
+
+            <div class="input-field col s6">
+                <input id="year" name="year" class="search" type="text" placeholder="Year" value="<?php if (isset($year)){echo $year;} ?>">
+                <label for="year">Year</label>
+            </div>
+        </div>
+    </form>
 </div>
 <div id="results" class="searchResults"></div>
 

@@ -1,10 +1,22 @@
-<input id="search_movie" class="search" type="text" placeholder="Search">
-<select id="filter" class="search">
-    <option value="videos">Movie Files</option>
-    <option value="folders">Folders</option>
-    <option value="all">Everything</option>
-    <option value="downloading">Downloading</option>
-</select>
+<form class="col s12">
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">search</i>
+        <input id="search_movie" class="search" type="text" placeholder="Search" >
+        <label for="search_movie">Search</label>
+    </div>
+    
+    <div class="input-field col s6">
+        <select id="filter" class="icons">
+            <option data-icon="img/copy.png" value="videos">Movie Files</option>
+            <option data-icon="img/folder.png" value="folders">Folders</option>
+            <option data-icon="img/sample-1.jpg" value="all">Everything</option>
+            <option data-icon="img/download.png" value="downloading">Downloading</option>
+        </select>
+        <label>Filter</label>
+    </div>
+</div>
+</form>
 <div id="all">
     <?php echo $this->element('DirElement', ['folders' => $folders, 'files' => $files]);?>
 </div>

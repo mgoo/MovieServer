@@ -30,6 +30,10 @@ class SearchController extends AppController {
         $year = $this->request->data('year');
         
         $json_string = file_get_contents('https://torrentproject.se/?s='.$title.' '.$year.'&out=json', true);
+        if ($json_string == ''){
+            echo 'The API got shutdown due to abuse, it will probably be replaced with more advanced key based free api in a new server in the future.';
+            echo "<br> try: <a target='_blank' href='https://thepiratebay.org/search/$title $year'>Pirate Bay</a>";
+        }
         $json_string = utf8_encode($json_string);
         $data_array = json_decode($json_string, true);
         
